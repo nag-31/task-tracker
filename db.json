@@ -1,10 +1,46 @@
 {
   "tasks": [
     {
-      "text": "123",
-      "day": "fgg",
+      "text": "eat",
+      "day": "daily",
       "reminder": true,
-      "id": 1
+      "id": 3
+    },
+    {
+      "text": "sleep",
+      "day": "daily",
+      "reminder": false,
+      "id": 4
+    },
+    {
+      "text": "water",
+      "day": "daily",
+      "reminder": true,
+      "id": 5
+    },
+    {
+      "text": "wake up",
+      "day": "daily",
+      "reminder": false,
+      "id": 6
+    },
+    {
+      "text": "text",
+      "day": "never",
+      "reminder": false,
+      "id": 7
+    },
+    {
+      "text": "call",
+      "day": "never",
+      "reminder": false,
+      "id": 8
+    },
+    {
+      "text": "vcal",
+      "day": "never",
+      "reminder": false,
+      "id": 9
     }
   ]
 }
