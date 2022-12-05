@@ -2,17 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Button from './Button'
 
-const Header = ({title}) => {
-  const onClick = () => {
-    console.log('click')
-  }
+const Header = ({title,onAdd}) => {
   
   
   return (
     <div>
         <h1>
             {title}
-            <Button text='Add' color='green' onClick = {onClick} />
+            <Button text='Add' color='green' onClick = {onAdd} />
         </h1>
     </div>
   )
@@ -20,7 +17,7 @@ const Header = ({title}) => {
 }
 
 Header.defaultProps={
-    title:'title default'
+    title:'Task Tracker'
     
 }
 
