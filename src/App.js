@@ -1,6 +1,9 @@
 import './App.css';
 
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Header from './components/Header'
+import Footer from './components/Footer'
+import About from './components/About'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
 
@@ -26,7 +29,11 @@ const App = () => {
     const data = (await res).json()
     return data
   }
-    
+  const fetchTask = async (id) => {
+    const res = fetch(`http://localhost:5000/tasks/${id}`)
+    const data = (await res).json()
+    return data
+  }
   
 
     const addTask = async (task) => {
@@ -56,13 +63,25 @@ const App = () => {
       //console.log('im del' , id)
     }
 
-    const toggleReminder =(id) => {
+    const toggleReminder = async (id) => {
+      const taskToToggle = await fetchTask(id)
+      const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder }
+  
+      const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(updTask),
+      })
+  
+      const data = await res.json()
+  
       setTasks(
         tasks.map((task) =>
-         task.id ==id ? 
-         {...task,reminder:! task.reminder} :task )
+          task.id === id ? { ...task, reminder: data.reminder } : task
+        )
       )
-
     }
 
   return (
